@@ -28,6 +28,9 @@ from django.contrib import messages
 
 #     return render(request, 'autenticacion/login.html', {'form':form})
 
+def index(request):
+    return render(request, 'autenticacion/index.html', {})
+
 def acceder(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)

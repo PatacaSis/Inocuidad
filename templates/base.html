@@ -32,7 +32,11 @@
         {% endfor %}
     {% endif %}
     
-    {% block navbar %}
+    
+            {% block autenticacion %}
+            <!-- <ul class="ml-auto"> -->
+                {% if user.is_authenticated %}
+                {% block navbar %}
     <div class="menu-bar">
         <ul>
             <li class=""><a href=""><i class="fa fa-home"></i>Inicio</a></li>
@@ -67,8 +71,7 @@
                     </ul>
                 </div>
             </li>
-            <!-- <ul class="ml-auto"> -->
-                {% if user.is_authenticated %}
+            {% endblock %}
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Hola {{user.username}}</a>
                 </li> -->
@@ -76,17 +79,18 @@
                     <a class=" btn btn-outline-info btn-sm boton-cerrar" style="color: rgb(219, 216, 18); font-weight:500; font-size: 14px;" href="{% url 'salir' %}">Cerrar sesion</a>
                 </li>
             {% else %}
-            <li>
+            <!-- <li>
                 <a href="{% url 'acceder' %}">Ingresar</a>
-            </li>
+            </li> -->
             {% endif %}
             <!-- </ul> -->
+            {% endblock%}
         </ul>
     </div>
 
     
 
-{% endblock %}
+
 {% block content %}
 
 {% endblock %}
