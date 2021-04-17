@@ -1,0 +1,148 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    background-image: linear-gradient(rgba(145, 137, 134, 0.4), rgba(145, 137, 134, 0.4)),url("../../img/industria-lactea-3-rotador.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: sans-serif;
+}
+.menu-bar{
+    background: rgb(0,100,0);
+    text-align: center;
+    margin-top: 0px;
+}
+ .menu-bar ul{
+     display: inline-flex;
+     list-style: none;
+     color: #fff;
+ }
+ .menu-bar ul li{
+     width: 160px;
+     margin: 10px;
+     padding: 10px;
+ }
+ .menu-bar ul li a{
+     text-decoration: none;
+     color:#fff;
+     font-size: 13px;
+ }
+ .active, .menu-bar ul li:hover{
+    background: #2bab02;
+    border-radius: 3px;
+ }
+ 
+ .menu-bar .fa{
+     margin-right: 6px;
+ }
+ .sub-menu-1{
+     display: none;
+ }
+ .menu-bar ul li:hover .sub-menu-1{
+     display: block;
+     position:absolute;
+     background: rgb(0,100,0);
+     margin-top: 15px;
+     margin-left: -15px;
+ }
+ .menu-bar ul li:hover .sub-menu-1 ul{
+     display: block;
+     margin: 10px;
+ }
+ .menu-bar ul li:hover .sub-menu-1 ul li{
+     width: 150px;
+     padding: 5px;
+     border-bottom: 1px dotted #fff;
+     background: transparent;
+     text-align: left;
+     border-radius: 0px;
+ }
+ .menu-bar ul li:hover .sub-menu-1 ul li:last-child{
+     border-bottom: none;
+ }
+ .menu-bar ul li:hover .sub-menu-1 ul li a:hover{
+     color: #b2ff00;
+ }
+ .fa-angle-right{
+     float: right;
+ }
+ .sub-menu-2{
+     display: none;
+ }
+ .hover-me:hover .sub-menu-2{
+     position: absolute;
+     display: block;
+     margin-top: -50px;
+     margin-left: 140px;
+     background: rgb(0,100,0);
+ }
+ .dataTables_wrapper .dataTables_filter{
+     display: none;
+ }
+ .dataTables_wrapper .dataTables_length{
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+ }
+ .dataTables_wrapper .dataTables_info{
+    font-size: 0.8rem;
+ }
+ .dataTables_wrapper .dataTables_paginate{
+    font-size: 0.8rem;
+ }
+ .dataTables_wrapper .dataTables_paginate .paginate_button{
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1em;
+    padding: .5em 1em;
+    margin-left: 1px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+ }
+ .table.dataTable{
+    line-height: 1;
+ }
+ .dataTables_info{
+     display: none;
+ }
+ .botonPrincipal{
+     margin-top: 5px;
+     background: rgb(6,232,248);
+     color: #000;
+ }
+ .registro{
+     margin: 140px auto;
+     background: #FFF;
+     border: 1px solid #000;
+     width: 500px;
+ }
+ .cab{
+     background: #858686;
+     height:50px;
+     margin-bottom: 10px;
+ }
+ .tit{
+     color:#FFF;
+     font-family: Raleway;
+     font-size: 20px;
+     font-weight: bold;
+     text-align: center;
+     padding-top: 10px;
+     padding-bottom: 15px;
+ }
+ .formulario{
+     margin: auto;
+     width: 80%;
+     margin-bottom: 20px;
+ }
+ /* .form-text{
+     display: none;
+ } */

@@ -1,0 +1,23 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Documentos{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        {% for tipo in tiposDoc %}
+        <div class="col col-md-3">
+        <div class="card" style="width:100%;margin:30px 15px;">
+            <img src="{{tipo.imagen.url}}" class="card-img-top">
+            <div class="card-body" style="text-align: center;">
+            <h6 class="card-title">{{tipo.titulo}}</h6>
+            <!-- <p class="card-text"></p> -->
+            <a href="#" class="btn btn-primary btn-sm">Ver</a>
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

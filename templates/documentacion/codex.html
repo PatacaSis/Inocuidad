@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Codex Alimentarius{% endblock %}
+{% block navbar %}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="card" style="margin-top: 10px; width: 100%;">
+        <div class="card-header" style="background-color: rgb(6, 232, 248); color:rgb(37, 37, 37); font-size: 18px;">
+            Codex Alimentarius         <!-- {% block boton-crear %}<a href="#" class="btn btn-outline-warning btn-sm boton-crear">Nuevo registro</a>{% endblock %} -->
+        </div>
+        <div class="card-body">
+            <table id="miTabla" class="display compact" style="font-size: 11px;">
+                {% if identi %}
+              <thead>
+                  <tr>
+                      <th>Identificacion</th>
+                  </tr>
+              </thead>
+              <tbody>
+                {% for i in identi %}
+                  <tr>
+                      <td>{{i.identifi}}</td>
+                      <td>
+                        {% if i.texto %}  
+                        <a href="{{i.texto.url}}" class="btn btn-primary btn-sm" target="_blank">Ver</a>
+                      </td>
+                        {% endif %}
+                      </tr>      
+              </tbody>
+              {% endfor %}
+              {% else %}
+              <h5 style="text-align: center;">No hay registros cargados en el sistema</h5>
+              {% endif %}
+        </div>
+          </table>
+    </div>
+    
+</div>
+<a class="btn btn-primary btn-block botonPrincipal" href="{% url 'index' %}">Volver al Menu Principal</a>
+{% endblock %}

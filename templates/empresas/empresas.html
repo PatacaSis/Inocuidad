@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Almacenamiento de regisros y documentacion</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+{% endblock %}
+  {% block content %}
+  <div class="container">
+    <div class="card" style="margin-top: 10px; width: 100%;">
+        <div class="card-header" style="background-color: rgb(6, 232, 248); color:rgb(37, 37, 37); font-size: 18px;">
+            Empresas registradas
+            <!-- {% block boton-crear %}<a href="#" class="btn btn-outline-warning btn-sm boton-crear">Nuevo registro</a>{% endblock %} -->
+        </div>
+        <div class="card-body">
+            <table id="miTabla" class="display compact" style="font-size: 13px;">
+                {% if empresas %}
+              <thead>
+                  <tr>
+                      <th>Razon Social</th>
+                      <th>Numero</th>
+                      <th>Localidad</th>
+                      <th>Acciones</th>
+                  </tr>
+              </thead>
+              <tbody>
+                {% for empresa in empresas %}
+                  <tr>
+                      <td>{{empresa.nombre}}</td>
+                      <td>{{empresa.numero}}</td>
+                      <td>{{empresa.localidad}}</td>
+                      <td><a href="#" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="#" class="btn btn-danger btn-sm">Borrar</a></td>
+                      </tr>      
+              </tbody>
+              {% endfor %}
+              {% else %}
+              <h3>No hay registros cargados en el sistema</h3>
+              {% endif %}
+        </div>
+          </table>
+    </div>
+</div>
+  {% endblock %}

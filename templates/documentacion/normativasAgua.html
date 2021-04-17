@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Alimentos{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="card" style="margin-top: 10px; width: 100%;">
+        <div class="card-header" style="background-color: rgb(6, 232, 248); color:rgb(37, 37, 37); font-size: 18px;">
+            Normativas sobre Agua
+            <!-- {% block boton-crear %}<a href="#" class="btn btn-outline-warning btn-sm boton-crear">Nuevo registro</a>{% endblock %} -->
+        </div>
+        <div class="card-body">
+            <table id="miTabla" class="display compact" style="font-size: 13px;">
+                {% if normativasAgua %}
+              <thead>
+                  <tr>
+                      <th>Tipo</th>
+                      <th>Numero</th>
+                      <th>Titulo</th>
+                  </tr>
+              </thead>
+              <tbody>
+                {% for agua in normativasAgua %}
+                  <tr>
+                      <td>{{agua.tipo}}</td>
+                      <td>{{agua.numero}}</td>
+                      <td>{{agua.titulo}}</td>
+                      <td>
+                        {% if agua.texto %}  
+                        <a href="{{agua.texto.url}}" class="btn btn-primary btn-sm" target="_blank">Ver</a>
+                        {% endif %}
+                      </tr>      
+              </tbody>
+              {% endfor %}
+              {% else %}
+              <h3>No hay registros cargados en el sistema</h3>
+              {% endif %}
+        </div>
+          </table>
+    </div>
+</div>
+{% endblock %}
