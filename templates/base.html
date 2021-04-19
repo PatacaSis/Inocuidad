@@ -61,23 +61,24 @@
                     </ul>
                 </div>
             </li>
-            <li><a href=""><i class="fa fa-clone"></i>Empresas</a>
-                <div class="sub-menu-1">
+            <li><a href="{% url 'empresas' %}"><i class="fa fa-clone"></i>Empresas</a>
+                <!-- <div class="sub-menu-1">
                     <ul>
                         <li><a href="#">Empresa 1</a></li>
                         <li><a href="#">Empresa 2</a></li>
                         <li><a href="#">Empresa 3</a></li>
                         <li><a href="#">Empresa 4</a></li>
                     </ul>
-                </div>
+                </div> -->
+            </li>
+            <li>
+                <a class="" style="color: rgb(219, 216, 18); font-weight:500; font-size: 14px;" href="{% url 'salir' %}">Cerrar sesion</a>
             </li>
             {% endblock %}
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Hola {{user.username}}</a>
                 </li> -->
-                <li>
-                    <a class=" btn btn-outline-info btn-sm boton-cerrar" style="color: rgb(219, 216, 18); font-weight:500; font-size: 14px;" href="{% url 'salir' %}">Cerrar sesion</a>
-                </li>
+                
             {% else %}
             <!-- <li>
                 <a href="{% url 'acceder' %}">Ingresar</a>

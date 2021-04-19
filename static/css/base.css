@@ -143,6 +143,13 @@ body
      width: 80%;
      margin-bottom: 20px;
  }
+ .boton-cerrar{
+     text-align: right;
+ }
+ .active, .menu-bar ul li:hover{
+    background:rgb(0,100,0);
+    border-radius: 3px;
+ }
  /* .form-text{
      display: none;
  } */

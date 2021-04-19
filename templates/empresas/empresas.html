@@ -2,7 +2,7 @@
 
 {% block navbar %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Almacenamiento de regisros y documentacion</a>
+  <a class="navbar-brand" href="#">Empresas Registradas</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -23,6 +23,7 @@
                       <th>Razon Social</th>
                       <th>Numero</th>
                       <th>Localidad</th>
+                      <th>Productos</th>
                       <th>Acciones</th>
                   </tr>
               </thead>
@@ -32,13 +33,20 @@
                       <td>{{empresa.nombre}}</td>
                       <td>{{empresa.numero}}</td>
                       <td>{{empresa.localidad}}</td>
-                      <td><a href="#" class="btn btn-warning btn-sm">Editar</a>
-                        <a href="#" class="btn btn-danger btn-sm">Borrar</a></td>
-                      </tr>      
+                      <td>
+                        {% for producto in empresa.productos_id.all %}
+                        <li>{{producto.tipo}}</li>
+                        {% endfor %}
+                      </td>
+                      <td>
+                        <a href="#" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="#" class="btn btn-danger btn-sm">Borrar</a>
+                      </td>
+                    </tr>      
               </tbody>
               {% endfor %}
               {% else %}
-              <h3>No hay registros cargados en el sistema</h3>
+              <h3>No hay empresas registradas en el sistema</h3>
               {% endif %}
         </div>
           </table>
