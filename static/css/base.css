@@ -6,7 +6,7 @@
 }
 body
 {
-    background-image: linear-gradient(rgba(145, 137, 134, 0.4), rgba(145, 137, 134, 0.4)),url("../../img/industria-lactea-3-rotador.jpg");
+    /* background-image: linear-gradient(rgba(145, 137, 134, 0.4), rgba(145, 137, 134, 0.4)),url("../../img/industria-lactea-3-rotador.jpg"); */
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -150,6 +150,17 @@ body
     background:rgb(0,100,0);
     border-radius: 3px;
  }
- /* .form-text{
-     display: none;
- } */
+ /*Card de datos de empresa*/
+.card{
+    margin-top: 10px;
+}
+.sub-titulo-card{
+    font-size: 16px;
+    color: #082ae7;
+}
+.sub-titulo-direccion{
+    font-size: 16px;
+}
+.dato-empresa{
+    font-size: 14px;
+}

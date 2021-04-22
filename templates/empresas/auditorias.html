@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container">
+  <div class="card" style="margin-top: 10px; width: 100%;">
+      <div class="card-header" style="background-color: rgb(6, 232, 248); color:rgb(37, 37, 37); font-size: 18px;">
+          Empresas registradas
+          <!-- {% block boton-crear %}<a href="#" class="btn btn-outline-warning btn-sm boton-crear">Nuevo registro</a>{% endblock %} -->
+      </div>
+      <div class="card-body">
+          <table id="miTabla" class="display compact" style="font-size: 13px;">
+              {% if object_list %}
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Empresa</th>
+                    <th>Motivo</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for auditoria in object_list %}
+                <tr>
+                    <td>{{auditoria.fecha}}</td>
+                    <td>{{auditoria.empresa}}</td>
+                    <td>{{auditoria.motivo}}</td>
+                    <td>{{auditoria.estado}}</td>
+                    <td>
+                      <a href="#" class="btn btn-warning btn-sm">Editar</a>
+                      <a href="#" class="btn btn-danger btn-sm">Borrar</a>
+                    </td>
+                  </tr>      
+            </tbody>
+            {% endfor %}
+            {% else %}
+            <h4>No hay auditorias registradas en el sistema</h4>
+            {% endif %}
+      </div>
+        </table>
+  </div>
+</div>
+{% endblock %}

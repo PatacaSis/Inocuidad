@@ -36,7 +36,7 @@
             {% block autenticacion %}
             <!-- <ul class="ml-auto"> -->
                 {% if user.is_authenticated %}
-                {% block navbar %}
+    {% block navbar %}
     <div class="menu-bar">
         <ul>
             <li class=""><a href=""><i class="fa fa-home"></i>Inicio</a></li>
@@ -74,6 +74,7 @@
             <li>
                 <a class="" style="color: rgb(219, 216, 18); font-weight:500; font-size: 14px;" href="{% url 'salir' %}">Cerrar sesion</a>
             </li>
+        
             {% endblock %}
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Hola {{user.username}}</a>
