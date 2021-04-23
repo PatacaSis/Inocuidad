@@ -1,4 +1,3 @@
-
 {% load static %}
 <!doctype html><!DOCTYPE html>
 <html lang="en">
@@ -21,7 +20,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
 <!-- Estilos propios -->
 <link rel="stylesheet" href="{% static 'css/base.css/' %}">
-<title>{% block title %}{% endblock %}</title>
+<title>Inocuidad{% block title %}{% endblock %}</title>
 </head>
 <body>
     {% if messages %}
@@ -31,67 +30,46 @@
             </div>
         {% endfor %}
     {% endif %}
-    
-    
-            {% block autenticacion %}
-            <!-- <ul class="ml-auto"> -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Inocuidad en Lacteos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapsedata-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="falsearia-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link ml-lg-3" href="{% url 'empresas' %}">Empresas<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ml-lg-3" href="#">Muestreos</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link ml-lg-3 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Bases normativas
+                    </a>
+                    <div class="dropdown-menu sub-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Cod.Alimentario Argentino</a>
+                        <a class="dropdown-item" href="#">Resolucion 815</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Agua</a>
+                        <a class="dropdown-item" href="#">BPM-Prerrequisitos</a>
+                        <a class="dropdown-item" href="#">HACCP</a>
+                        <a class="dropdown-item" href="#">Instalaciones</a>
+                        <a class="dropdown-item" href="#">Plagas</a>
+                        <a class="dropdown-item" href="#">Plan CREHA</a>
+                    </div>
+                </li>
+            </ul>
                 {% if user.is_authenticated %}
-    {% block navbar %}
-    <div class="menu-bar">
-        <ul>
-            <li class=""><a href=""><i class="fa fa-home"></i>Inicio</a></li>
-            <li><a href=""><i class="fa fa-user"></i>Normativas</a>
-                <div class="sub-menu-1">
-                    <ul>
-                        <li class="hover-me"><a href="{% url 'caa' %}">Cod Alimentario Argentino</a></li>
-                        <li><a href="{% url 'codex' %}">Codex Alimentarius</a></li>
-                        <li class="hover-me"><a href="#">Alimentos</a><i class="fa fa-angle-right"></i>
-                            <div class="sub-menu-2">
-                                <ul>
-                                    <li><a href="{% url 'alimentos' %}">Lacteos</a></li>
-                                    <li><a href="#">Apicolas</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="#">Agua</a></li>
-                        <li><a href="#">Exportaciones</a></li>
-                        <li><a href="#">HACCP</a></li>
-                        <li><a href="#">Instalaciones</a></li>
-                        <li><a href="#">Plagas</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li><a href="{% url 'empresas' %}"><i class="fa fa-clone"></i>Empresas</a>
-                <!-- <div class="sub-menu-1">
-                    <ul>
-                        <li><a href="#">Empresa 1</a></li>
-                        <li><a href="#">Empresa 2</a></li>
-                        <li><a href="#">Empresa 3</a></li>
-                        <li><a href="#">Empresa 4</a></li>
-                    </ul>
-                </div> -->
-            </li>
-            <li>
-                <a class="" style="color: rgb(219, 216, 18); font-weight:500; font-size: 14px;" href="{% url 'salir' %}">Cerrar sesion</a>
-            </li>
-        
-            {% endblock %}
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">Hola {{user.username}}</a>
-                </li> -->
-                
-            {% else %}
-            <!-- <li>
-                <a href="{% url 'acceder' %}">Ingresar</a>
-            </li> -->
-            {% endif %}
-            <!-- </ul> -->
-            {% endblock%}
-        </ul>
-    </div>
-
-    
-
+                <ul class="navbar-nav ml-auto">
+                 <li class="nav-link ml-lg-3 saludo">Bienvenido {{user.username}}</li>
+                 <li class="nav-item">
+                    <a class="nav-link ml-lg-4 saludo" href="{% url 'salir' %}">Salir</a>
+                </li>
+                </ul>
+                {% endif %}
+        </div>
+    </nav>
 
 {% block content %}
 
@@ -126,7 +104,6 @@
      });
     });
     </script>
-
    
     <script>
     $(function () {

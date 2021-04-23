@@ -1,39 +1,6 @@
 {% extends 'base.html' %}
-
-{% block navbar %}
-<div class="menu-bar">
-        <ul>
-            <li class=""><a href=""><i class="fa fa-home"></i>Inicio</a></li>
-            <li><a href=""><i class="fa fa-user"></i>Normativas</a>
-                <div class="sub-menu-1">
-                    <ul>
-                        <li class="hover-me"><a href="{% url 'caa' %}">Cod Alimentario Argentino</a></li>
-                        <li><a href="{% url 'codex' %}">Codex Alimentarius</a></li>
-                        <li class="hover-me"><a href="#">Alimentos</a><i class="fa fa-angle-right"></i>
-                            <div class="sub-menu-2">
-                                <ul>
-                                    <li><a href="{% url 'alimentos' %}">Lacteos</a></li>
-                                    <li><a href="#">Apicolas</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="#">Agua</a></li>
-                        <li><a href="#">Exportaciones</a></li>
-                        <li><a href="#">HACCP</a></li>
-                        <li><a href="#">Instalaciones</a></li>
-                        <li><a href="#">Plagas</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li><a href="{% url 'empresas' %}"><i class="fa fa-clone"></i>Empresas</a></li>
-            <li>
-                <a class="" style="color: rgb(219, 216, 18); font-weight:500; font-size: 14px;" href="{% url 'salir' %}">Cerrar sesion</a>
-            </li>
-        </div>
-            {% endblock %}
-
+{% block title %}|Datos de Empresa{% endblock %}
 {% block content %}
-
 <div class="container">
   <div class="card">
     <h2 class="card-header" style="background-color: rgb(6, 232, 248); color:rgb(37, 37, 37); font-size: 18px;">{{object.nombre|upper}} - Numero Oficial: S-I-{{object.numero|upper}}</h2>

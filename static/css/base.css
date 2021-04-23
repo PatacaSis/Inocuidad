@@ -32,10 +32,10 @@ body
      color:#fff;
      font-size: 13px;
  }
- .active, .menu-bar ul li:hover{
+ /* .active, .menu-bar ul li:hover{
     background: #2bab02;
     border-radius: 3px;
- }
+ } */
  
  .menu-bar .fa{
      margin-right: 6px;
@@ -163,4 +163,11 @@ body
 }
 .dato-empresa{
     font-size: 14px;
+}
+
+.saludo{
+    font-size:12px;
+}
+.sub-menu{
+    font-size:13px;
 }
