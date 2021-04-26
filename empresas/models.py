@@ -66,7 +66,11 @@ class Auditoria(models.Model):
     criterio = models.CharField(verbose_name='Criterios de auditoria', max_length=250)
     alcance = models.CharField(verbose_name='Alcance de auditoria', max_length=250)
     evidencia = models.TextField(verbose_name='Evidencias encontradas')
-    nc = models.TextField(verbose_name='No conformidades/Conclusiones')
+    auditores = models.CharField(verbose_name='Auditor/Auditores', max_length=250)
+    auditados = models.CharField(verbose_name='Personas de empresa auditada:', max_length=250)
+    grupos_id = models.ManyToManyField(GrupoTecnologico, verbose_name='Grupos tecnologicos habilitados')
+    nc = models.TextField(verbose_name='No conformidades')
+    observaciones = models.TextField(verbose_name='Aclaraciones/Conclusiones')
     estado = models.BooleanField(verbose_name='Abierta/Cerrada', default=False)
 
     class Meta:
@@ -76,6 +80,36 @@ class Auditoria(models.Model):
     
     def __str__(self):
         return '{}'.format(self.motivo)
+
+TIPO_AGUA = [
+    ('Os','Agua de osmosis'),
+    ('Po','Agua de pozo'),
+    ('Re','Agua de red')
+]
+
+TIPO_ANALISIS = [
+    ('MB','Microbiologico'),
+    ('FQ','Fisicoquimico'),
+]
+
+class Agua(models.Model):
+    fecha = models.DateField()
+    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
+    tipo_agua = models.CharField(verbose_name='Fuente de agua ', max_length=2, choices=TIPO_AGUA)
+    punto_muestreo = models.CharField(verbose_name='Punto de muestreo', max_length=50)
+    tipo_analisis = models.CharField(verbose_name='Tipo de analisis', max_length=2, choices=TIPO_ANALISIS)
+    laboratorio = models.CharField(verbose_name='Laboratorio', max_length=50)
+    resultado = models.BooleanField(verbose_name='Aceptable/No aceptable')
+    observaciones = models.TextField(verbose_name='Observaciones')
+
+    class Meta:
+        verbose_name = 'Muestreo de agua'
+        verbose_name_plural = 'Muestreos de agua'
+        ordering = ['fecha']
+    
+    def __str__(self):
+        return '{}'.format(self.fecha)
+
 
 
      

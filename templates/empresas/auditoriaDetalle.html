@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}|Auditoria{% endblock %}
+
+{% block content %}
+<a style="color:black; font-size: 13px; margin-left: 10px;" href="{% url 'index' %}">Volver a inicio</a>
+<div class="container">
+  <div class="card">
+    <h2 class="card-header" style="background-color: rgb(6, 232, 248); color:rgb(37, 37, 37); font-size: 18px;">{{object.empresa|upper}}</h2>
+    <div class="card-body">
+            
+        <h3 style="display: inline;"><span class="sub-titulo-direccion">Fecha de Auditoria:</span>&nbsp;<span class="dato-empresa">{{object.fecha|upper}}</span></h3>      
+        <br>
+        <h3 class="sub-titulo-card" style="display: inline;">Motivo de la auditoria:</h3>&nbsp;<span class="dato-empresa">{{object.motivo|upper}}</span>
+        <br>
+        <h3 class="sub-titulo-card" style="display: inline;">Criterio de auditoria:</h3>&nbsp;<span class="dato-empresa">{{object.criterio|upper}}</span>
+        <br>
+        <h3 class="sub-titulo-card" style="display: inline;">Alcance de auditoria:</h3>&nbsp;<span class="dato-empresa">{{object.alcance|upper}}</span>
+        <br>
+        <h3 class="sub-titulo-card" style="display: inline;">Auditor o Equipo auditor:</h3>&nbsp;<span class="dato-empresa">{{object.auditor|upper}}</span>
+        <br>
+        <h3 class="sub-titulo-card" style="display: inline;">Presentes por la empresa auditada:</h3>&nbsp;<span class="dato-empresa">{{object.auditado|upper}}</span>
+        <hr>
+        <!-- <h3 class="sub-titulo-card">Grupos Tecnologicos</h3>
+        {% for grupo in empresa.grupos_id.all%}
+        <span class="dato-empresa">{{grupo}}</span>
+        {% endfor %} -->
+        <h3 class="sub-titulo-card" style="display: inline;">Grupos Tecnologicos habilitados:</h3>&nbsp;<span class="dato-empresa">{{object.empresa.grupos_id.all|join:" - "|upper}}</span>
+        <br>
+        <h3 class="sub-titulo-card" style="display: inline;">No conformidades:</h3>&nbsp;<span class="dato-empresa">{{object.nc|capfirst}}</span>
+        <br>
+        <h3 class="sub-titulo-card" style="display: inline;">Conclusiones:</h3>&nbsp;<span class="dato-empresa">{{object.observaciones}}</span>
+        <br>
+       
+        
+    </div>
+  </div>
+  <br>
+    
+  
+</div>
+{% endblock %}

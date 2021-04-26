@@ -5,8 +5,8 @@
 <div class="container">
   <div class="card" style="margin-top: 10px; width: 100%;">
       <div class="card-header" style="background-color: rgb(6, 232, 248); color:rgb(37, 37, 37); font-size: 18px;">
-          Empresas registradas
-          <!-- {% block boton-crear %}<a href="#" class="btn btn-outline-warning btn-sm boton-crear">Nuevo registro</a>{% endblock %} -->
+          Auditorias realizadas
+          {% block boton-crear %}<a href="#" class="btn btn-outline-warning btn-sm boton-crear">Nueva Auditoria</a>{% endblock %}
       </div>
       <div class="card-body">
           <table id="miTabla" class="display compact" style="font-size: 13px;">
@@ -24,12 +24,13 @@
               {% for auditoria in object_list %}
                 <tr>
                     <td>{{auditoria.fecha}}</td>
-                    <td>{{auditoria.empresa}}</td>
-                    <td>{{auditoria.motivo}}</td>
-                    <td>{{auditoria.estado}}</td>
+                    <td>{{auditoria.empresa|upper}}</td>
+                    <td>{{auditoria.motivo|upper}}</td>
+                    <td>{{auditoria.estado|capfirst}}</td>
                     <td>
-                      <a href="#" class="btn btn-warning btn-sm">Editar</a>
-                      <a href="#" class="btn btn-danger btn-sm">Borrar</a>
+                      <a href="{% url 'auditoriadet' auditoria.pk %}" class="btn btn-warning btn-sm">Ver</a>
+                      <a href="#" class="btn btn-warning btn-sm">Modificar</a>
+                      <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                   </tr>      
             </tbody>
