@@ -63,15 +63,15 @@ class Auditoria(models.Model):
     fecha = models.DateField()
     empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
     motivo = models.CharField(verbose_name='Motivo de la auditoria', max_length=150)
-    criterio = models.CharField(verbose_name='Criterios de auditoria', max_length=250)
-    alcance = models.CharField(verbose_name='Alcance de auditoria', max_length=250)
-    evidencia = models.TextField(verbose_name='Evidencias encontradas')
     auditores = models.CharField(verbose_name='Auditor/Auditores', max_length=250)
     auditados = models.CharField(verbose_name='Personas de empresa auditada:', max_length=250)
     grupos_id = models.ManyToManyField(GrupoTecnologico, verbose_name='Grupos tecnologicos habilitados')
+    criterio = models.CharField(verbose_name='Criterios de auditoria', max_length=250)
+    alcance = models.CharField(verbose_name='Alcance de auditoria', max_length=250)
+    evidencia = models.TextField(verbose_name='Evidencias encontradas')
     nc = models.TextField(verbose_name='No conformidades')
     observaciones = models.TextField(verbose_name='Aclaraciones/Conclusiones')
-    estado = models.BooleanField(verbose_name='Abierta/Cerrada', default=False)
+    estado = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = 'Auditoria'
@@ -82,9 +82,9 @@ class Auditoria(models.Model):
         return '{}'.format(self.motivo)
 
 TIPO_AGUA = [
-    ('Os','Agua de osmosis'),
-    ('Po','Agua de pozo'),
-    ('Re','Agua de red')
+    ('Agua Osmosis','Agua Osmosis'),
+    ('Agua de pozo','Agua de pozo'),
+    ('Agua de red','Agua de red')
 ]
 
 TIPO_ANALISIS = [
@@ -95,12 +95,14 @@ TIPO_ANALISIS = [
 class Agua(models.Model):
     fecha = models.DateField()
     empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
-    tipo_agua = models.CharField(verbose_name='Fuente de agua ', max_length=2, choices=TIPO_AGUA)
+    tipo_agua = models.CharField(verbose_name='Fuente de agua ', max_length=12, choices=TIPO_AGUA)
     punto_muestreo = models.CharField(verbose_name='Punto de muestreo', max_length=50)
+    acta = models.CharField(verbose_name='Numero de acta', max_length=10)
     tipo_analisis = models.CharField(verbose_name='Tipo de analisis', max_length=2, choices=TIPO_ANALISIS)
     laboratorio = models.CharField(verbose_name='Laboratorio', max_length=50)
-    resultado = models.BooleanField(verbose_name='Aceptable/No aceptable')
+    resultado = models.BooleanField(verbose_name='Protocolo')
     observaciones = models.TextField(verbose_name='Observaciones')
+    estado = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = 'Muestreo de agua'

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}|Control de Agua{% endblock %}
+
+{% block content %}
+<a style="color:black; font-size: 13px; margin-left: 10px;" href="{% url 'agua' %}">Volver al listado de controles de agua</a>
+<div class="container">
+  <div class="card">
+    <h2 class="card-header" style="background-color: rgb(6, 232, 248); color:rgb(37, 37, 37); font-size: 18px;">{{object.empresa|upper}}</h2>
+    <div class="card-body">
+            
+        <h3 class="sub-titulo-card" style="display: inline;">Fecha de Auditoria:</span>&nbsp;<span class="dato-empresa">{{object.fecha|upper}}</span></h3>      
+        <br>
+        <h3 class="sub-titulo-card" style="display: inline;">Fuente de agua:</h3>&nbsp;<span class="dato-empresa">{{object.tipo_agua|upper}}</span>
+        <br>
+        <h3 class="sub-titulo-card" style="display: inline;">Punto de muestreo:</h3>&nbsp;<span class="dato-empresa">{{object.punto_muestreo|upper}}</span>
+        <br>
+        <h3 class="sub-titulo-card" style="display: inline;">Acta de muestreo:</h3>&nbsp;<span class="dato-empresa">{{object.acta|upper}}</span>
+        <br>
+        <h3 class="sub-titulo-card" style="display: inline;">Analisis realizado:</h3>&nbsp;<span class="dato-empresa">{{object.tipo_analisis|upper}}</span>
+        <br>
+        <h3 class="sub-titulo-card" style="display: inline;">Laboratorio:</h3>&nbsp;<span class="dato-empresa">{{object.laboratorio|upper}}</span>
+        <br>
+        <h3 class="sub-titulo-card" style="display: inline;">Resultado:</h3>&nbsp;<span class="dato-empresa">{{object.resultado|upper}}</span>
+        <hr>
+        <h3 class="sub-titulo-card" style="display: inline;">Observaciones:</h3>&nbsp;<span class="dato-empresa">{{object.observaciones}}</span>
+        <br>
+    </div>
+  </div>
+  <br>
+</div>
+{% endblock %}

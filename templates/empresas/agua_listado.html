@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container">
+  <div class="card" style="margin-top: 10px; width: 100%;">
+      <div class="card-header" style="background-color: rgb(6, 232, 248); color:rgb(37, 37, 37); font-size: 18px;">
+          Controles de Agua
+          {% block boton-crear %}<a href="{% url 'nuevo-control' %}" class="btn btn-outline-warning btn-sm boton-crear">Nueva Control</a>{% endblock %}
+      </div>
+      <div class="card-body">
+          <table id="miTabla" class="display compact" style="font-size: 13px;">
+              {% if object_list %}
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Empresa</th>
+                    <th>Fuente</th>
+                    <th>Analisis</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for agua in object_list %}
+                <tr>
+                    <td>{{agua.fecha}}</td>
+                    <td>{{agua.empresa|upper}}</td>
+                    <td>{{agua.tipo_agua|upper}}</td>
+                    <td>{{agua.tipo_analisis|upper}}</td>
+                    <td>
+                      <a href="{% url 'agua-detalle' agua.pk %}" class="btn btn-warning btn-sm">Ver</a>
+                      <a href="{% url 'agua-modificar' agua.pk %}" class="btn btn-warning btn-sm">Modificar</a>
+                      <a href="{% url 'agua-eliminar' agua.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                  </tr>      
+            </tbody>
+            {% endfor %}
+            {% else %}
+            <h6>No hay controles de agua registrados en el sistema</h6>
+            {% endif %}
+      </div>
+        </table>
+  </div>
+</div>
+{% endblock %}

@@ -6,7 +6,7 @@
   <div class="card" style="margin-top: 10px; width: 100%;">
       <div class="card-header" style="background-color: rgb(6, 232, 248); color:rgb(37, 37, 37); font-size: 18px;">
           Auditorias realizadas
-          {% block boton-crear %}<a href="#" class="btn btn-outline-warning btn-sm boton-crear">Nueva Auditoria</a>{% endblock %}
+          {% block boton-crear %}<a href="{% url 'auditoria-nueva' %}" class="btn btn-outline-warning btn-sm boton-crear">Nueva Auditoria</a>{% endblock %}
       </div>
       <div class="card-body">
           <table id="miTabla" class="display compact" style="font-size: 13px;">
@@ -16,7 +16,6 @@
                     <th>Fecha</th>
                     <th>Empresa</th>
                     <th>Motivo</th>
-                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -26,11 +25,10 @@
                     <td>{{auditoria.fecha}}</td>
                     <td>{{auditoria.empresa|upper}}</td>
                     <td>{{auditoria.motivo|upper}}</td>
-                    <td>{{auditoria.estado|capfirst}}</td>
                     <td>
                       <a href="{% url 'auditoriadet' auditoria.pk %}" class="btn btn-warning btn-sm">Ver</a>
-                      <a href="#" class="btn btn-warning btn-sm">Modificar</a>
-                      <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+                      <a href="{% url 'auditoria-modificar' auditoria.pk %}" class="btn btn-warning btn-sm">Modificar</a>
+                      <a href="{% url 'auditoria-eliminar' auditoria.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                   </tr>      
             </tbody>

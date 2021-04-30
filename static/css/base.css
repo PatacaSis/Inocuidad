@@ -171,3 +171,11 @@ body
 .sub-menu{
     font-size:13px;
 }
+
+
+.asteriskField{
+    display: none;
+}
+.label{
+    margin-bottom: .2rem;
+    }
